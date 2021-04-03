@@ -17,11 +17,22 @@ function generatePassword() {
     var x = (prompt("How many characters would you like your password to be?"));
     var userLength = parseInt(x);
 
-    //asks user to press Generate Password again if they do not enter a valid number
+    //next three ifs ask user to press Generate Password again if they do not enter a valid number
     if (!userLength) {
       alert("Your answer must contain a number, please press Generate Password again!")
       return;
     }
+
+    if (userLength < 8) {
+      alert("Your password must be at lease 8 characters long, please press Generate Password again!")
+      return;
+    }
+
+    if (userLength > 128) {
+      alert("Your password must be less than 128 characters long, please press Generate Password again!")
+      return;
+    }
+
 
     //gives user a yes or no on lower case
     var userLower = confirm("Would you like to use lower case letters?");
@@ -75,7 +86,7 @@ function generatePassword() {
     console.log(passwordText);
 
 
-    //returns generated password to writePassword function
+    //returns generated password to html
     return passwordText;
     
   }
