@@ -66,6 +66,12 @@ function generatePassword() {
       newPassword += special;
     }
 
+    //ensures the user inputs at least one set of characters
+    if (!userLower && !userUpper && !userNumber && !userSpecial) {
+      alert("You must choose at least one set of characters, please press Generate Password again!")
+      return;
+    }
+
     //loop the number given for userLength
     //takes the generated newPassword with appropriate strings (based on user input)
     //makes password equal to this and spits out a new password
